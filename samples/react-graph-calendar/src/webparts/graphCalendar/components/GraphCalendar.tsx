@@ -65,7 +65,7 @@ export default class GraphCalendar extends React.Component<IGraphCalendarProps, 
       currentActiveEndDate: null,
       isEventDetailsOpen: false,
       currentSelectedEvent: null,
-      groupId: this._isRunningInTeams() ? this.props.teamsContext.groupId : this.props.context.pageContext.site.group ? this.props.context.pageContext.site.group.id : "",
+      groupId: this._isRunningInTeams() ? this.props.groupId : this.props.groupId? this.props.groupId : "",
       tabType: this._isRunningInTeams() ? (this._isPersonalTab() ? TabType.PersonalTab : TabType.TeamsTab) : TabType.TeamsTab
     };
   }

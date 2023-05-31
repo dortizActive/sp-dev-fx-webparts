@@ -16,6 +16,7 @@ import { PropertyPaneSlider, PropertyPaneCheckbox, IPropertyPaneConfiguration } 
 export interface IGraphCalendarWebPartProps {
   limit: number;
   showRecurrence: boolean;
+  groupId: string;
 }
 
 export default class GraphCalendarWebPart extends BaseClientSideWebPart<IGraphCalendarWebPartProps> {
@@ -28,7 +29,9 @@ export default class GraphCalendarWebPart extends BaseClientSideWebPart<IGraphCa
         limit: this.properties.limit,
         showRecurrence: this.properties.showRecurrence,
         context: this.context,
-        teamsContext: this._teamsContext
+        teamsContext: this._teamsContext,
+        groupId: this.properties.groupId
+        
       }
     );
 
@@ -46,6 +49,10 @@ export default class GraphCalendarWebPart extends BaseClientSideWebPart<IGraphCa
 
       if (this.properties.showRecurrence === undefined) {
         this.properties.showRecurrence = true;
+      }
+
+      if(this.properties.groupId === undefined){
+        this.properties.groupId = "58b3389f-de06-460e-85cf-93ae1ccaf8da";
       }
 
       // Sets the Teams context if in Teams
@@ -68,10 +75,11 @@ export default class GraphCalendarWebPart extends BaseClientSideWebPart<IGraphCa
     ReactDom.unmountComponentAtNode(this.domElement);
   }
 
-  protected get dataVersion(): Version {
+ 
+/*   protected get dataVersion(): Version {
     return Version.parse('1.0');
   }
-
+ */
   protected getPropertyPaneConfiguration(): IPropertyPaneConfiguration {
     return {
       pages: [
@@ -89,9 +97,18 @@ export default class GraphCalendarWebPart extends BaseClientSideWebPart<IGraphCa
                   checked: true
                 })
               ]
+            },{
+              groupName: 'Opciones de Calendario',
+              groupFields: [
+                PropertyPaneTextField('groupId', {
+                  label: 'ID del Grupo',
+                  placeholder: 'Ingrese el ID del Grupo',
+                  
+                })
+              ]
             }
           ]
-        }
+        } 
       ]
     };
   }

@@ -6,4 +6,5 @@ export interface IGraphCalendarProps {
   showRecurrence: boolean;
   context: WebPartContext;
   teamsContext: microsoftTeams.Context;
+  groupId: string;
 }

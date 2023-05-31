@@ -14,7 +14,7 @@
   "requiresCustomScript": false,
   "supportedHosts": ["SharePointWebPart", "TeamsTab", "TeamsPersonalApp"],
   "preconfiguredEntries": [{
-    "groupId": "5c03119e-3074-46fd-976b-c60198311f70", // Other
+    "groupId": "58b3389f-de06-460e-85cf-93ae1ccaf8da", // Other
     "group": { "default": "Other" },
     "title": { "default": "Graph Calendar" },
     "description": { "default": "Graph Calendar" },

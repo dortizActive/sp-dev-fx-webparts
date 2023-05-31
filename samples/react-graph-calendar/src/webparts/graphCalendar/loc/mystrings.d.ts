@@ -6,6 +6,8 @@ declare interface IGraphCalendarWebPartStrings {
   Location: string;
   Body: string;
   Close: string;
+  groupIdInsert: string;
+
 }
 
 declare module 'GraphCalendarWebPartStrings' {
